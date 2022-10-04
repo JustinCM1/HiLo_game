@@ -6,14 +6,14 @@ using System.Collections.Generic;
 class Deck {
 
     //intialize red cards
-    public List<int> hearts = new List<int>();
-    public List<int> diamonds = new List<int>();
+    public List<int> hearts = new List<int>(14);
+    public List<int> diamonds = new List<int>(14);
     //initialize black cards
-    public List<int> clubs = new List<int>();
-    public List<int> spades = new List<int>();
+    public List<int> clubs = new List<int>(14);
+    public List<int> spades = new List<int>(14);
 
     //full deck of all suits compiled together
-    public List<int>deck = new List<int>();
+    public List<int>deck = new List<int>(53);
 
     //other variables  
     public int newCard = 0;
@@ -29,17 +29,11 @@ class Deck {
             spades.Add(i);
         }
         //fill the deck with the numbers of each suit
-        for (int i = 1; i <= 11; i++) {
+        for (int i = 0; i <= 13; i++) {
             deck.Add(hearts[i]);
-        }
-        for (int i = 1; i <= 11; i++) {
-            deck.Add(diamonds[i]);
-        }
-        for (int i = 1; i <= 11; i++) {
-            deck.Add(clubs[i]);
-        }
-        for (int i = 1; i <= 11; i++) {
             deck.Add(spades[i]);
+            deck.Add(diamonds[i]);
+            deck.Add(clubs[i]);
         }
     }
 
@@ -51,7 +45,11 @@ class Deck {
         return newCard;
     }
 
-    public void displayDeck() {
-        Console.WriteLine($"{deck}.");
+    public void DisplayDeck() {
+
+        Console.WriteLine(deck.Count());
+        for (int i = 0; i <= deck.Count(); i++) {
+        Console.WriteLine($" Card number # {i}: {deck[i]}.");
+        }
     }
 }

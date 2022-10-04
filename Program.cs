@@ -8,7 +8,6 @@ static void Main(string[] args) {
     Deck deck = new Deck();
 
     dealer.GetPoints(dealer.points);
+    deck.DisplayDeck();
     }
-
-    deck.displayDeck(deck.deck);
 }
