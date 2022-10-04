@@ -2,7 +2,8 @@
 class Dealer {
 
     //initialize variables
-    public int points;
+    public int points = 0;
+    public int newPoints = 0;
 
     public Dealer() {
         //starting value for player
@@ -12,5 +13,12 @@ class Dealer {
     public int GetPoints(int points) {
 
         return points;
+    }
+
+    public int CalculatePoints(int points, int newPoints) {
+        //if guess is correct, add to points with 
+        //if guess is wrong, deduct points with input
+
+        return newPoints;
     }
 }

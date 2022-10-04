@@ -5,14 +5,10 @@ static void Main(string[] args) {
 
     //variables    
     Dealer dealer = new Dealer();
+    Deck deck = new Deck();
 
     dealer.GetPoints(dealer.points);
-    Console.WriteLine($"Points: {dealer.points}");
-    Console.Write("Available cards: ");
-    for (int i = 0; i < 52; i++) {
-        Console.Write($"{deck.hearts[i]}");
     }
-    
 
-    }
+    deck.displayDeck(deck.deck);
 }
