@@ -4,16 +4,14 @@ using System.Collections.Generic;
 
 //In charge of tracking what cards are played and what cards are left for the Dealer to draw from
 class Deck {
-
-    //intialize red cards
-    public List<int> hearts = new List<int>(14);
-    public List<int> diamonds = new List<int>(14);
-    //initialize black cards
-    public List<int> clubs = new List<int>(14);
-    public List<int> spades = new List<int>(14);
+    //intialize different suits
+    public List<int> hearts = new List<int>();
+    public List<int> diamonds = new List<int>();
+    public List<int> clubs = new List<int>();
+    public List<int> spades = new List<int>();
 
     //full deck of all suits compiled together
-    public List<int>deck = new List<int>(53);
+    public List<int> deck = new List<int>();
 
     //other variables  
     public int newCard = 0;
@@ -29,6 +27,8 @@ class Deck {
             spades.Add(i);
         }
         //fill the deck with the numbers of each suit
+        /*Could make a cheater option and make a single list of deck with 52 cards
+          but this restricts the ability to include future implementation of suits*/
         for (int i = 0; i <= 13; i++) {
             deck.Add(hearts[i]);
             deck.Add(spades[i]);
@@ -40,16 +40,13 @@ class Deck {
     //methods
     public int GetCard() {
         Random random = new Random();
-        int newCard = random.Next(hearts.Count);
+        int newCard = random.Next(deck.Count);
     
         return newCard;
     }
 
-    public void DisplayDeck() {
-
-        Console.WriteLine(deck.Count());
-        for (int i = 0; i <= deck.Count(); i++) {
-        Console.WriteLine($" Card number # {i}: {deck[i]}.");
-        }
+    //keep track of what cards are still in the deck and what has been played already
+    public void GetDiscardPile() {
+        //subract from the deck list to add to the discard list
     }
 }
