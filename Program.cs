@@ -16,8 +16,10 @@ static void Main(string[] args) {
         deck.GetCard();
         dealer.PlayCard(deck.newCard);
         dealer.GetGuess();
+        //TODO why is this here again?
         deck.GetCard(); // <-- This might cause the old card to not be used properly if the player continues
         dealer.DisplayNextCard(deck.newCard);
+        deck.GetDiscardPile();
         dealer.CalculatePoints(deck.newCard);
     }
     //ending message

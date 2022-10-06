@@ -12,6 +12,7 @@ class Deck {
 
     //full deck of all suits compiled together
     public List<int> deck = new List<int>();
+    public List<int> discard = new List<int>();
 
     //other variables  
     public int newCard = 0;
@@ -48,5 +49,7 @@ class Deck {
     //keep track of what cards are still in the deck and what has been played already
     public void GetDiscardPile() {
         //subract from the deck list to add to the discard list
+        discard.Add(newCard);
+        deck.Remove(newCard);
     }
 }
