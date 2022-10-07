@@ -14,10 +14,9 @@ static void Main(string[] args) {
     while (dealer.IsGameOver(dealer.points) != true) {
         dealer.DisplayPoints();
         deck.GetCard();
-        dealer.PlayCard(deck.newCard);
+        dealer.PlayCard(dealer.oldCard);
         dealer.GetGuess();
-        //TODO why is this here again?
-        deck.GetCard(); // <-- This might cause the old card to not be used properly if the player continues
+        deck.GetCard();
         dealer.DisplayNextCard(deck.newCard);
         deck.GetDiscardPile();
         dealer.CalculatePoints(deck.newCard);

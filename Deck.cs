@@ -16,12 +16,13 @@ class Deck {
 
     //other variables  
     public int newCard = 0;
+    Random random = new Random();
 
     //constructor
     public Deck() {
 
         //fill the card values of the different suits into their respective lists
-        for (int i = 1; i <= 13; i++) {
+        for (int i = 0; i <= 13; i++) {
             hearts.Add(i);
             diamonds.Add(i);
             clubs.Add(i);
@@ -38,9 +39,8 @@ class Deck {
         }
     }
 
-    //methods
+    /************| METHODS |****************/
     public int GetCard() {
-        Random random = new Random();
         int newCard = random.Next(deck.Count);
     
         return newCard;

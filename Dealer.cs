@@ -26,28 +26,29 @@ class Dealer {
 
     //prompts the player to guess High or Low
     public string GetGuess() {
-        Console.WriteLine("High or Low: ");
+        Console.Write("High or Low [h/l]: ");
         return guess = Console.ReadLine() ?? "";
     }
 
-    public void DisplayNextCard(int newCard) {
+    public int DisplayNextCard(int newCard) {
         Console.WriteLine($"The next card was: {newCard}");
+        //the new card revealed now becomes the old card
+        oldCard = newCard;
+
+        return oldCard;
     }
 
     public int CalculatePoints(int newCard) {
         //if guess is correct, add to points
-        for (int i = 0; i <= 5; i++) {
-
-            if ((guess == "H" || guess == "Hi" || guess == "High") && oldCard >= newCard) {
-                points += 100;
-            }
-            else if ((guess == "L" || guess == "Lo" || guess == "Low") && oldCard <= newCard) {
-                points += 100;
-            }
-            //else, subract points
-            else {
-                points -= 75;
-            }
+        if ((guess == "h" || guess == "Hi" || guess == "High") && oldCard >= newCard) {
+            points += 100;
+        }
+        else if ((guess == "l" || guess == "Lo" || guess == "Low") && oldCard <= newCard) {
+            points += 100;
+        }
+        //else, subract points
+        else {
+            points -= 75;
         }
 
         return points;
