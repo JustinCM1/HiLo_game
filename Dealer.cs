@@ -11,12 +11,8 @@ class Dealer {
         points = 300;
     }
 
-    public int GetPoints(int points) {
-        return points;
-    }
-
     //shows the player how many points they have left
-    public void DisplayPoints() {
+    public void DisplayPoints(int points) {
         Console.WriteLine($"You have {points} points.");
     }
 
@@ -25,12 +21,12 @@ class Dealer {
     }
 
     //prompts the player to guess High or Low
-    public string GetGuess() {
+    public string GetGuess(string guess) {
         Console.Write("High or Low [h/l]: ");
         return guess = Console.ReadLine() ?? "";
     }
 
-    public int DisplayNextCard(int newCard) {
+    public int DisplayNextCard(int newCard, int oldCard) {
         Console.WriteLine($"The next card was: {newCard}");
         //the new card revealed now becomes the old card
         oldCard = newCard;
@@ -38,7 +34,7 @@ class Dealer {
         return oldCard;
     }
 
-    public int CalculatePoints(int newCard) {
+    public int CalculatePoints(int newCard, int points) {
         //if guess is correct, add to points
         if ((guess == "h" || guess == "Hi" || guess == "High") && oldCard >= newCard) {
             points += 100;
@@ -57,6 +53,7 @@ class Dealer {
     //validates is the player has 0 or less points to terminate the game
     public bool IsGameOver(int points) {
         if (points <= 0) {
+            points = 0;
             return true;
         }
         return false;

@@ -12,14 +12,14 @@ static void Main(string[] args) {
 
     //game loop
     while (dealer.IsGameOver(dealer.points) != true) {
-        dealer.DisplayPoints();
-        deck.GetCard();
+        dealer.DisplayPoints(dealer.points);
+        deck.GetCard(deck.newCard);
         dealer.PlayCard(dealer.oldCard);
-        dealer.GetGuess();
-        deck.GetCard();
-        dealer.DisplayNextCard(deck.newCard);
-        deck.GetDiscardPile();
-        dealer.CalculatePoints(deck.newCard);
+        dealer.GetGuess(dealer.guess);
+        deck.GetCard(deck.newCard);
+        dealer.DisplayNextCard(deck.newCard, deck.newCard);
+        deck.GetDiscardPile(deck.newCard);
+        dealer.CalculatePoints(deck.newCard, dealer.points);
     }
     //ending message
     Console.WriteLine("Looks like you finally hit bottom. Thanks for playing.");

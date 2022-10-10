@@ -40,14 +40,14 @@ class Deck {
     }
 
     /************| METHODS |****************/
-    public int GetCard() {
-        int newCard = random.Next(deck.Count);
+    public int GetCard(int newCard) {
+        newCard = random.Next(deck.Count);
     
         return newCard;
     }
 
     //keep track of what cards are still in the deck and what has been played already
-    public void GetDiscardPile() {
+    public void GetDiscardPile(int newCard) {
         //subract from the deck list to add to the discard list
         discard.Add(newCard);
         deck.Remove(newCard);
